@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine Day Card</title>
+    <link href="style.css" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+    <script src="animate-heart-canvas-browser.js?v=20230222171908"></script>
+
+    <script>
+        let queryData = getSearchData()
+        console.log(queryData)
+        let animateHeartCanvas = new AnimateHeartCanvas(
+            Number(queryData.hMin),
+            Number(queryData.hMax),
+            Number(queryData.countHeart),
+            Number(queryData.sizeMin),
+            Number(queryData.sizeMax),
+            queryData.bgColor,
+        )
+
+        function getSearchData(){
+            let searchString = location.search;
+            if (searchString){
+                let obj = {};
+                searchString = searchString.substring(1, searchString.length);
+                let tempArray = searchString.split('&');
+                tempArray.forEach(item => {
+                    obj[item.split('=')[0]] = decodeURIComponent(item.split('=')[1]);
+                });
+                return obj;
+            } else {
+                return false;
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <audio autoplay>
+            <source src="my-valentine.mp3" type="audio/ogg">
+            <source src="my-valentine.mp3" type="audio/mpeg">
+          </audio>
+          
+        <div class="happy-valentines animate__animated animate__bounceInDown animate__delay-1s">
+            <div class="valentines-day-card">
+                <div class="clouds"></div>
+                <div class="hearts">
+                <div class="heartOne">
+                    <div class="left-side"></div>
+                    <div class="right-side"></div>
+                </div>
+                <div class="heartTwo">
+                    <div class="left-side"></div>
+                    <div class="right-side"></div>
+                </div>
+                    <div class="heartThree">
+                    <div class="left-side"></div>
+                    <div class="right-side"></div>
+                </div>
+                    <div class="heartFour">
+                    <div class="left-side"></div>
+                    <div class="right-side"></div>
+                </div>
+                    <div class="heartFive">
+                    <div class="left-side"></div>
+                    <div class="right-side"></div>
+                </div>
+                </div>
+                <div class="text"><span>Happy Heart's</br> Day!</div>
+            </div>
+            <p class="text-hover">- hover/click over the text -</p>
+        </div>
+    </div>
+
+</body>
+</html>
